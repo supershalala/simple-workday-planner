@@ -1,6 +1,8 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -8,6 +10,36 @@ $(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
+
+
+  $(document).ready(function() {
+    $('div').on('mouseover', function() {
+      $(this).find('.saveBtn').on('click', function() {
+        console.log('Save button clicked in div with ID: ' + $(this).closest('div').attr('id'));
+  
+        let timeDiv = $(this).closest('div').attr('id');
+  
+        let textAreaVal = $(this).closest('div').find('textarea').val();
+  
+        console.log(timeDiv + "this is the time div ");
+        console.log("this divs textarea content " + textAreaVal);
+  
+        localStorage.setItem(timeDiv , textAreaVal);
+      });
+    });
+  });
+  
+  
+
+
+
+
+
+
+
+
+
+
   //
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
