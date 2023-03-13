@@ -28,22 +28,13 @@ $(document).ready(function()  {
         console.log('Save button clicked in div with ID: ' + timeDiv);
         let textAreaVal = $(this).closest('div').find('textarea').val();
         localStorage.setItem(timeDiv, textAreaVal);
+        setClass();
+
       });
+
 
     });
   
-  
-  
-
-
-
-
-
-
-
-
-
-
   //
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -51,6 +42,7 @@ $(document).ready(function()  {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   let time24Hour = "hour-"+ (today.format("H"));
+  console.log(today.format("H"))
     console.log(time24Hour);
     function setClass() {
       $('div').each(function() {
@@ -62,13 +54,8 @@ $(document).ready(function()  {
       $('.present').prevAll('div').addClass('past');
       $('.present').nextAll('div').addClass('future');
     }
-  
-  
- 
-    
-    
-    
 
+    
     setClass();
 
 
@@ -79,8 +66,8 @@ $(document).ready(function()  {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
 
+  // TODO: Add code to display the current date in the header of the page.
 
 $('#currentDay').text(today.format('MMM D, YYYY'));
 });
