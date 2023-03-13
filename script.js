@@ -49,7 +49,10 @@ $(document).ready(function()  {
         var timeDiv = $(this).attr('id');
         if (timeDiv === time24Hour) {
           $(this).removeClass("past future").addClass("present");
-        } 
+        } else {
+          $(this).removeClass("present future").addClass("past");
+
+        }
       });
       $('.present').prevAll('div').addClass('past');
       $('.present').nextAll('div').addClass('future');
