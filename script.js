@@ -13,19 +13,23 @@ $(function () {
 
 
   $(document).ready(function() {
-    $('div').on('mouseover', function() {
+    // Loop through each div
+    $('div').each(function() {
+      // Get the ID of the div
+      let timeDiv = $(this).attr('id');
+  
+      // Retrieve the value from local storage
+      let textAreaVal = localStorage.getItem(timeDiv);
+      if (textAreaVal !== null) {
+        $(this).find('textarea').val(textAreaVal);
+      }
+
       $(this).find('.saveBtn').on('click', function() {
-        console.log('Save button clicked in div with ID: ' + $(this).closest('div').attr('id'));
-  
-        let timeDiv = $(this).closest('div').attr('id');
-  
+        console.log('Save button clicked in div with ID: ' + timeDiv);
         let textAreaVal = $(this).closest('div').find('textarea').val();
-  
-        console.log(timeDiv + "this is the time div ");
-        console.log("this divs textarea content " + textAreaVal);
-  
-        localStorage.setItem(timeDiv , textAreaVal);
+        localStorage.setItem(timeDiv, textAreaVal);
       });
+
     });
   });
   
@@ -53,3 +57,16 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+function allStorage() {
+
+  var archive = {}, // Notice change here
+      keys = Object.keys(localStorage),
+      i = keys.length;
+
+  while ( i-- ) {
+      archive[ keys[i] ] = localStorage.getItem( keys[i] );
+  }
+
+  return archive;
+}
