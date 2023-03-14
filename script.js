@@ -78,20 +78,3 @@ $(document).ready(function()  {
 
 $('#currentDay').text(today.format('MMM D, YYYY'));
 });
-
-
-// function allStorage() {
-
-//   var archive = {},
-//       keys = Object.keys(localStorage),
-//       i = keys.length;
-
-//   while ( i-- ) {
-//       var value = localStorage.getItem(keys[i]);
-//       if (value !== undefined) {
-//           archive[keys[i]] = value;
-//       }
-//   }
-
-//   return archive;
-// }
