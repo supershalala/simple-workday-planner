@@ -22,6 +22,8 @@ $(document).ready(function()  {
       let textAreaVal = localStorage.getItem(timeDiv);
       if (textAreaVal !== null) {
         $(this).find('textarea').val(textAreaVal);
+      } else {
+        $(this).find('textarea').val(''); // set textarea value to empty string
       }
 
       $(this).find('.saveBtn').on('click', function() {
@@ -54,11 +56,13 @@ $(document).ready(function()  {
 
         }
       });
+      const divContainer = 
       $('.present').prevAll('div').addClass('past');
       $('.present').nextAll('div').addClass('future');
+      $(".container-fluid").removeClass("past future present");
+      $(".hour").removeClass("past future present");
     }
 
-    
     setClass();
 
 
@@ -75,18 +79,19 @@ $(document).ready(function()  {
 $('#currentDay').text(today.format('MMM D, YYYY'));
 });
 
-function allStorage() {
 
-  var archive = {},
-      keys = Object.keys(localStorage),
-      i = keys.length;
+// function allStorage() {
 
-  while ( i-- ) {
-      var value = localStorage.getItem(keys[i]);
-      if (value !== undefined) {
-          archive[keys[i]] = value;
-      }
-  }
+//   var archive = {},
+//       keys = Object.keys(localStorage),
+//       i = keys.length;
 
-  return archive;
-}
+//   while ( i-- ) {
+//       var value = localStorage.getItem(keys[i]);
+//       if (value !== undefined) {
+//           archive[keys[i]] = value;
+//       }
+//   }
+
+//   return archive;
+// }
