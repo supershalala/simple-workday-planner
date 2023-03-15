@@ -15,15 +15,13 @@ $(document).ready(function()  {
 
     // Loop through each div
     $('div').each(function() {
-      // Get the ID of the div
       let timeDiv = $(this).attr('id');
-  
-      // Retrieve the value from local storage
+
       let textAreaVal = localStorage.getItem(timeDiv);
       if (textAreaVal !== null) {
         $(this).find('textarea').val(textAreaVal);
       } else {
-        $(this).find('textarea').val(''); // set textarea value to empty string
+        $(this).find('textarea').val(''); 
       }
 
       $(this).find('.saveBtn').on('click', function() {
@@ -76,5 +74,5 @@ $(document).ready(function()  {
 
   // TODO: Add code to display the current date in the header of the page.
 
-$('#currentDay').text(today.format('MMM D, YYYY'));
+$('#currentDay').text(today.format('dddd,D MMMM, YYYY'));
 });
